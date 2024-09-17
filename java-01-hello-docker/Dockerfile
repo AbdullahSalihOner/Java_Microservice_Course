@@ -1,5 +1,5 @@
 # Uygulama için gerekli olan JDK
-FROM amazoncorreto:21
+FROM amazoncorretto:17
 # From ile Docker Hub üzerinden image çekilir
 
 # Projemizdeki JAR dosyasını Docker image'ına kopyalıyoruz, Dockerda çalıştırılacak olan JAR dosyası
@@ -16,3 +16,6 @@ EXPOSE 8080
 
 # Uygulamanın çalıştırılmasını sağlayan komut
 ENTRYPOINT ["java","-jar","/app.jar"]
+
+
+

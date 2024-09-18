@@ -1,1 +1,5 @@
 rootProject.name = 'java-02-microservice-basic-demo'
+include 'ServiceA'
+include 'ServiceB'
+include 'ServiceC'
+

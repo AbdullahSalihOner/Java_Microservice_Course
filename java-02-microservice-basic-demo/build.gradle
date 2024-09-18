@@ -68,9 +68,10 @@ allprojects {
         compileOnly libs.lombok
         annotationProcessor libs.lombok
         implementation libs.swaggerApi
-
         implementation libs.mapStruct
         annotationProcessor libs.mapStructProcessor
+
+        //tüm projelerde ortak olmasını istemediğim bağımlılıkları buraya ekleme
         //  implementation libs.postgreSql
     }
 }

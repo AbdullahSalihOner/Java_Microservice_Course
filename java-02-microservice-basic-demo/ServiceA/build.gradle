@@ -1,0 +1,7 @@
+
+dependencies {
+    // sadece bu service özel bagimliliklar buraya eklenir
+    // implementation libs.postgreSql
+    // implementation libs.springBootDataJpa
+}
+

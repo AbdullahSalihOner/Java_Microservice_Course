@@ -1,18 +1,28 @@
 package com.salih.controller;
 
-
+import com.salih.dto.request.DoLoginRequestDto;
+import com.salih.dto.request.DoRegisterRequestDto;
+import com.salih.dto.response.DoRegisterResponseDto;
 import com.salih.model.Auth;
+import com.salih.service.AuthService;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+import static com.salih.constant.EndPoint.*;
+
+//  http://localhost:9090/auth
+
 @RestController
-@RequestMapping
+@RequestMapping(ENDPOINT_AUTH)
 public class AuthController {
+
+    private final AuthService authService;
+
+    public AuthController(AuthService authService) {
+        this.authService = authService;
+    }
 
 /*
     // http://localhost:9090
@@ -29,21 +39,45 @@ public class AuthController {
     }
     */
 
-    @PostMapping("/register")
-    public ResponseEntity<Auth> register () {
-        return null; }
+
+    //  http://localhost:9090/auth/register
+/*
+    @PostMapping(ENDPOINT_REGISTER)
+    public ResponseEntity<Auth> register (@RequestBody DoRegisterRequestDto dto) {
+        System.out.println("Register request DTO: " + dto);
+        return ResponseEntity.ok(authService.doRegister(dto));
+}
+*/
 
 
-    @PostMapping("/login")
-    public  Auth   login () {
-        return null; }
+    @PostMapping(ENDPOINT_REGISTER)
+    public ResponseEntity<DoRegisterResponseDto> register (@RequestBody DoRegisterRequestDto dto) {
+        System.out.println("Register request DTO: " + dto);
+        return ResponseEntity.ok(authService.doRegister(dto));
+    }
 
 
-    @GetMapping("/findAll")
-    public List<Auth> findAll () {
-        return null; }
 
-    @GetMapping("/getMessage")
+    //  http://localhost:9090/auth/login
+
+    @PostMapping(ENDPOINT_LOGIN)
+    public  ResponseEntity<String>   login (@RequestBody DoLoginRequestDto dto) {
+        return ResponseEntity.ok(authService.doLogin(dto)); }
+
+    // Tokensiz
+/*
+    @GetMapping(ENDPOINT_FINDALL)
+    public  ResponseEntity < List<Auth> > findAll () {
+        return ResponseEntity.ok(authService.findAll()); }
+    */
+
+    //Tokenli
+    @GetMapping(ENDPOINT_FINDALL)
+    public  ResponseEntity < List<Auth> > findAll (@RequestParam String token) {
+        return ResponseEntity.ok(authService.findAll(token)); }
+
+
+    @GetMapping(ENDPOINT_GETMESSAGE)
     public  String   getMessage () {
         return null; }
 

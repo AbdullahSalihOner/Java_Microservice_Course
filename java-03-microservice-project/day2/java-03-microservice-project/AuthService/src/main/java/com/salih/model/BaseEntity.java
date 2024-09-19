@@ -14,8 +14,6 @@ import lombok.experimental.SuperBuilder;
 @Data // set ve get metodlarini otomatik tanimlar
 @NoArgsConstructor // bos paramtereli hazırlayıcı yapıcı metodu oluşturur.
 @AllArgsConstructor // dolu paramtereli hazırlayıcı yapıcı metodu oluşturur.
-
-
 public class BaseEntity {
 
     private Long createAt;

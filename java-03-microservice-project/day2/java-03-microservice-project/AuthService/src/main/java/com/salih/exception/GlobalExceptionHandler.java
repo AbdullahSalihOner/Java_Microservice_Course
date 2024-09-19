@@ -1,4 +1,4 @@
-package com.salih.execption;
+package com.salih.exception;
 
 
 import org.springframework.http.HttpStatus;

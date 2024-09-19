@@ -1,4 +1,4 @@
-package com.salih.execption;
+package com.salih.exception;
 
 
 import lombok.AllArgsConstructor;

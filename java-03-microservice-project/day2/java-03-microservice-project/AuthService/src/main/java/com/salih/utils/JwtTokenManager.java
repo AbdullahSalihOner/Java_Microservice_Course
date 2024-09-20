@@ -19,8 +19,6 @@ public class JwtTokenManager {
 
     Long expireDate = 1000L * 60 * 5; // 5 dakika
 */
-
-
     @Value("${authservice.secret.key}")
     String secretKey;
 
@@ -29,8 +27,6 @@ public class JwtTokenManager {
 
     @Value("${authservice.expire.date}") // 1000L * 60 * 5 // 5 dakika
     Long expireDate;
-
-
 
     // 1. adım: Token üret.
     public Optional<String> createToken (Long id){
